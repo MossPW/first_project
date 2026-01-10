@@ -27,48 +27,47 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Home Screen'),
-          backgroundColor: Colors.blueAccent,
-        ),
-        body: Stack(children: [
-          Container(
-            height: 200,
-            width: 200,
-            color: Colors.red,
-          ),
-          Positioned(
-              top: 10,
-              left: 10,
-              child: Container(
-                height: 50,
-                width: 50,
-                color: Colors.green,
-              )),
-          Positioned(
-              top: 10,
-              right: 10,
-              child: Container(
-                height: 50,
-                width: 50,
-                color: Colors.blue,
-              )),
-          Positioned(
-              bottom: 10,
-              right: 10,
-              child: Container(
-                height: 50,
-                width: 50,
-                color: Colors.yellow,
-              )),
-          Positioned(
-              bottom: 10,
-              left: 10,
-              child: Container(
-                height: 50,
-                width: 50,
-                color: Colors.pink,
-              )),
-        ]));
+        // appBar:
+        //  AppBar(
+        //   title: Text('Home Screen'),
+        //   backgroundColor: Colors.blueAccent,
+        // ),
+        body: Center(
+            child: Stack(
+      children: [
+        Container(
+            height: 300,
+            width: 120,
+            decoration: BoxDecoration(
+                color: Colors.black, borderRadius: BorderRadius.circular(10))),
+        Positioned(
+            top: 20,
+            left: 20,
+            child: Container(
+              height: 80,
+              width: 80,
+              decoration:
+                  BoxDecoration(shape: BoxShape.circle, color: Colors.red),
+            )),
+        Positioned(
+            top: 110,
+            left: 20,
+            child: Container(
+              height: 80,
+              width: 80,
+              decoration:
+                  BoxDecoration(shape: BoxShape.circle, color: Colors.yellow),
+            )),
+        Positioned(
+            bottom: 20,
+            left: 20,
+            child: Container(
+              height: 80,
+              width: 80,
+              decoration:
+                  BoxDecoration(shape: BoxShape.circle, color: Colors.green),
+            )),
+      ],
+    )));
   }
 }
