@@ -31,30 +31,27 @@ class HomeScreen extends StatelessWidget {
           title: Text('Home Screen'),
           backgroundColor: Colors.blueAccent[100],
         ),
-        body: Center(
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image.network(
-            'https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250',
-            height: 100,
-            width: 100,
-          ),
-          Image.asset(
-            'assets/icon_person.png',
-            height: 100,
-            width: 100,
-          ),
-          Icon(
-            Icons.person,
-            size: 100,
-          ),
-          SizedBox(height: 10),
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.red[100]),
-              onPressed: () {
-                print("Login");
-              },
-              child: Text('Login')),
-        ])));
+        body: ListView(
+          children: [
+            Container(
+              height: 350,
+              width: double.infinity,
+              color: Colors.blue,
+              child: Text('Item 1'),
+            ),
+            Container(
+              height: 350,
+              width: double.infinity,
+              color: Colors.red,
+              child: Text('Item 2'),
+            ),
+            Container(
+              height: 350,
+              width: double.infinity,
+              color: Colors.green,
+              child: Text('Item 3'),
+            ),
+          ],
+        ));
   }
 }
