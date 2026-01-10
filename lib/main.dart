@@ -31,27 +31,15 @@ class HomeScreen extends StatelessWidget {
           title: Text('Home Screen'),
           backgroundColor: Colors.blueAccent[100],
         ),
-        body: ListView(
-          children: [
-            Container(
-              height: 350,
-              width: double.infinity,
-              color: Colors.blue,
-              child: Text('Item 1'),
-            ),
-            Container(
-              height: 350,
-              width: double.infinity,
-              color: Colors.red,
-              child: Text('Item 2'),
-            ),
-            Container(
-              height: 350,
-              width: double.infinity,
-              color: Colors.green,
-              child: Text('Item 3'),
-            ),
-          ],
-        ));
+        body: ListView.builder(
+            itemCount: 150,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: Icon(Icons.list_alt),
+                title: Text('Item $index'),
+                subtitle: Text('LoremploLoremploLoremplo'),
+                trailing: Icon(Icons.add),
+              );
+            }));
   }
 }
