@@ -31,22 +31,44 @@ class HomeScreen extends StatelessWidget {
           title: Text('Home Screen'),
           backgroundColor: Colors.blueAccent,
         ),
-        body: Stack(alignment: Alignment.center, children: [
+        body: Stack(children: [
           Container(
             height: 200,
             width: 200,
             color: Colors.red,
           ),
-          Container(
-            height: 150,
-            width: 150,
-            color: Colors.green,
-          ),
-          Container(
-            height: 100,
-            width: 100,
-            color: Colors.blue,
-          )
+          Positioned(
+              top: 10,
+              left: 10,
+              child: Container(
+                height: 50,
+                width: 50,
+                color: Colors.green,
+              )),
+          Positioned(
+              top: 10,
+              right: 10,
+              child: Container(
+                height: 50,
+                width: 50,
+                color: Colors.blue,
+              )),
+          Positioned(
+              bottom: 10,
+              right: 10,
+              child: Container(
+                height: 50,
+                width: 50,
+                color: Colors.yellow,
+              )),
+          Positioned(
+              bottom: 10,
+              left: 10,
+              child: Container(
+                height: 50,
+                width: 50,
+                color: Colors.pink,
+              )),
         ]));
   }
 }
