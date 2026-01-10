@@ -34,18 +34,27 @@ class HomeScreen extends StatelessWidget {
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Image.network(
+            'https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250',
+            height: 100,
+            width: 100,
+          ),
+          Image.asset(
+            'assets/icon_person.png',
+            height: 100,
+            width: 100,
+          ),
+          Icon(
+            Icons.person,
+            size: 100,
+          ),
+          SizedBox(height: 10),
           ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: Colors.red[100]),
               onPressed: () {
                 print("Login");
               },
               child: Text('Login')),
-          SizedBox(height: 10),
-          TextButton(
-              onPressed: () {
-                print("forgot password!");
-              },
-              child: Text('forgot password'))
         ])));
   }
 }
