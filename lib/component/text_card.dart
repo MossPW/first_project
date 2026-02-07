@@ -8,7 +8,10 @@ class TextCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: color,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: color,
+            boxShadow: [BoxShadow(color: Colors.black, spreadRadius: 2)]),
         padding: EdgeInsets.all(10),
         child: Text(
           text,
