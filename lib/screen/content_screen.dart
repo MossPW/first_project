@@ -2,7 +2,8 @@ import 'package:first_project/component/text_card.dart';
 import 'package:flutter/material.dart';
 
 class ContentScreen extends StatelessWidget {
-  const ContentScreen({super.key});
+  final String name;
+  const ContentScreen({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class ContentScreen extends StatelessWidget {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           TextCard(
-            text: "Personal Growth",
+            text: "Personal Growth (by $name)",
             color: Colors.greenAccent,
           ),
           SizedBox(
@@ -26,11 +27,11 @@ class ContentScreen extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Back home'))
+          // ElevatedButton(
+          //     onPressed: () {
+          //       Navigator.pop(context);
+          //     },
+          //     child: Text('Back home'))
         ])));
   }
 }

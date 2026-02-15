@@ -1,4 +1,7 @@
+import 'package:first_project/screen/content_screen.dart';
 import 'package:first_project/screen/greeting_screen.dart';
+import 'package:first_project/screen/home_screen.dart';
+import 'package:first_project/screen/simple_form_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,9 +21,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
           useMaterial3: true,
         ),
-        home: GreetingScreen(
-          name: "Donald Trump",
-          bgColor: Colors.blue,
-        ));
+        home: SimpleFormScreen());
   }
 }

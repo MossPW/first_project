@@ -30,16 +30,18 @@ class GreetingScreen extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          ElevatedButton(
-              onPressed: () {
-                //การเปลี่ยนหน้า ไปหน้าต่อไป
-                Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const ContentScreen(),
-                    ));
-              },
-              child: Text("Go to Content ->"))
+          // ElevatedButton(
+          //     onPressed: () {
+          //       //การเปลี่ยนหน้า ไปหน้าต่อไป
+          //       Navigator.push(
+          //           context,
+          //           MaterialPageRoute<void>(
+          //             builder: (BuildContext context) =>
+          //                 ContentScreen(name: name),
+          //           ));
+          //       // Navigator.pushNamed(context, '/content');
+          //     },
+          //     child: Text("Go to Content ->"))
         ],
       )),
     );
