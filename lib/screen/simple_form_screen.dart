@@ -15,6 +15,11 @@ class _SimpleFormScreenState extends State<SimpleFormScreen> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
+  String? _selectedItem;
+  List<String> listOption = ['male', 'female'];
+  bool _isChecked = false;
+  bool _isSwitched = false;
+  String? _gender = 'Female';
 
   @override
   Widget build(BuildContext context) {
@@ -24,49 +29,69 @@ class _SimpleFormScreenState extends State<SimpleFormScreen> {
             key: _formKey,
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text('Display input : $strInput'),
-              TextFormField(
-                controller: _usernameController,
-                decoration: InputDecoration(
-                    icon: Icon(Icons.person), labelText: 'Username'),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'กรุณากรอกบัญชีผู้ใช้';
-                  }
-                },
-              ),
-              TextFormField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                    icon: Icon(Icons.key), labelText: 'Password'),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'กรุณาระบุรหัสผ่าน';
-                  }
-                },
-              ),
-              TextFormField(
-                controller: _confirmPasswordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                    icon: Icon(Icons.key), labelText: 'Confirm password'),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'กรุณาระบุรหัสผ่าน';
-                  }
-                  if (value != _passwordController.text) {
-                    return 'รหัสผ่านไม่ตรงกัน';
-                  }
-                },
+              DropdownButtonFormField(
+                  decoration: const InputDecoration(
+                      labelText: 'Gender', border: OutlineInputBorder()),
+                  value: _selectedItem,
+                  items: ['male', 'female', 'lgbtq', 'other'].map((item) {
+                    return DropdownMenuItem(value: item, child: Text(item));
+                  }).toList(),
+                  onChanged: (String? value) {
+                    _selectedItem = value;
+                  }),
+              CheckboxListTile(
+                  title: const Text('Accept Terms & Conditions'),
+                  value: _isChecked,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      _isChecked = value!;
+                    });
+                  }),
+              SwitchListTile(
+                  title: const Text('Enable Notifications'),
+                  value: _isSwitched,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      _isSwitched = value!;
+                    });
+                  }),
+              Column(
+                children: [
+                  RadioListTile(
+                      value: 'Male',
+                      title: const Text('Male'),
+                      groupValue: _gender,
+                      onChanged: (String? value) {
+                        setState(() {
+                          _gender = value;
+                        });
+                      }),
+                  RadioListTile(
+                      value: 'Female',
+                      title: const Text('Female'),
+                      groupValue: _gender,
+                      onChanged: (String? value) {
+                        setState(() {
+                          _gender = value;
+                        });
+                      }),
+                  RadioListTile(
+                      value: 'LGBTQ',
+                      title: const Text('LGBTQ'),
+                      groupValue: _gender,
+                      onChanged: (String? value) {
+                        setState(() {
+                          _gender = value;
+                        });
+                      })
+                ],
               ),
               ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       // validate ผ่าน
                       setState(() {
-                        strInput =
-                            "Username : ${_usernameController.text} Password : ${_passwordController.text}";
+                        strInput = "";
                       });
                     } else {
                       // validate ไม่ผ่าน
@@ -76,17 +101,6 @@ class _SimpleFormScreenState extends State<SimpleFormScreen> {
                     }
                   },
                   child: Text('สมัครสมาชิก')),
-              // ElevatedButton(
-              //     onPressed: () {
-              //       _usernameController.clear();
-              //       _passwordController.clear();
-              //     },
-              //     child: Text('เคลียร์ค่า')),
-              // ElevatedButton(
-              //     onPressed: () {
-              //       _usernameController.text = 'patipan.wat';
-              //     },
-              //     child: Text('Auto fill'))
             ])));
   }
 }
