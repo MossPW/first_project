@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "106553980177",
+    "project_id": "nosql-db-test-fe5c1",
+    "storage_bucket": "nosql-db-test-fe5c1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106553980177:android:2eaca89195f636d2e488b0",
+        "android_client_info": {
+          "package_name": "com.example.first_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiwlT1Yefa1rFwJn-xpCeK1UtER-1S2iI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

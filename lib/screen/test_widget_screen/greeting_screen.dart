@@ -1,7 +1,7 @@
 import 'package:first_project/component/like_card.dart';
 import 'package:first_project/component/profile_card.dart';
 import 'package:first_project/component/text_card.dart';
-import 'package:first_project/screen/content_screen.dart';
+import 'package:first_project/screen/test_widget_screen/content_screen.dart';
 import 'package:flutter/material.dart';
 
 class GreetingScreen extends StatelessWidget {
