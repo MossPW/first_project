@@ -2,6 +2,7 @@ import 'package:first_project/screen/content_screen.dart';
 import 'package:first_project/screen/greeting_screen.dart';
 import 'package:first_project/screen/home_screen.dart';
 import 'package:first_project/screen/list_user_screen.dart';
+import 'package:first_project/screen/list_user_screen_v2.dart';
 import 'package:first_project/screen/simple_form_screen.dart';
 import 'package:first_project/screen/workshop_form_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
           useMaterial3: true,
         ),
-        home: ListUserScreen());
+        home: ListUserScreenV2());
   }
 }
