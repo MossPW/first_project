@@ -46,7 +46,7 @@ class _CallApiScreenState extends State<CallApiScreen> {
             decoration: InputDecoration(labelText: 'ID'),
           ),
           Text('Name : ${userData?.firstName}'),
-          Text('Username : ${userData?.username}'),
+          Text('Username : ${userData?.fullName}'),
           Text('Email : ${userData?.email}'),
           ElevatedButton(
               onPressed: () {
