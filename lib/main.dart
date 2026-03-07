@@ -20,11 +20,24 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(const MyWidget());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyWidget extends StatefulWidget {
+  const MyWidget({super.key});
+
+  @override
+  State<MyWidget> createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<MyWidget> {
+  bool isLightMode = true;
+
+  void toggleMode() {
+    setState(() {
+      isLightMode = !isLightMode;
+    });
+  }
 
   // This widget is the root of your application.
   @override
@@ -32,28 +45,28 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter First Project',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-          textTheme: TextTheme(
-            bodySmall: TextStyle(fontSize: 8, fontWeight: FontWeight.w400),
-            bodyLarge: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
-          ),
-          useMaterial3: true,
-        ),
-        home: PageTest());
+        theme: isLightMode
+            ? ThemeData.light()
+                .copyWith(scaffoldBackgroundColor: Colors.lightBlueAccent)
+            : ThemeData.dark()
+                .copyWith(scaffoldBackgroundColor: Colors.blueGrey),
+        themeMode: ThemeMode.system,
+        home: PageTest(toggleMode: toggleMode));
   }
 }
 
 class PageTest extends StatelessWidget {
-  const PageTest({super.key});
+  final VoidCallback toggleMode;
+  const PageTest({super.key, required this.toggleMode});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: secondaryColor,
         appBar: AppBar(
-          backgroundColor: mainColor,
           title: Text('Test Theme'),
+          actions: [
+            IconButton(onPressed: toggleMode, icon: Icon(Icons.switch_left))
+          ],
         ),
         body: Center(
             child: Column(
@@ -62,8 +75,8 @@ class PageTest extends StatelessWidget {
             Text('Title', style: Theme.of(context).textTheme.bodyLarge),
             Text('smals', style: Theme.of(context).textTheme.headlineLarge),
             Text('M', style: Theme.of(context).textTheme.displayLarge),
-            Text('Title1', style: title1.copyWith(fontSize: 48)),
-            Text('body1', style: body1),
+            Text('สวัสดี', style: title1.copyWith(fontSize: 48)),
+            Text('ขอบคุณ', style: body1),
           ],
         )));
   }
